@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+use App\Mailer\SpoolMailer;
+
+set_time_limit(0);
+
+require __DIR__.'/../vendor/autoload.php';
+
+$options = [
+    // Uncomment these options to change the default path
+    //'spool_options' => [
+    //    'path' => __DIR__.'/../mail/tmp/',
+    //]
+];
+
+$mailer = new SpoolMailer($options);
+echo $mailer->sendMail('me@example.com', 'dummy@example.com', 'Hello Fork!', 'Cheers!')."\n";

@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+use App\Mailer\NullMailer;
+
+set_time_limit(0);
+
+require __DIR__.'/../vendor/autoload.php';
+
+$mailer = new NullMailer();
+echo $mailer->sendMail('me@example.com', ['dummy1@example.com', 'dummy2@example.com'], 'Hello Fork!', 'Cheers!')."\n";

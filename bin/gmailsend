@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+use App\Mailer\GoogleMailer;
+
+set_time_limit(0);
+
+require __DIR__.'/../vendor/autoload.php';
+
+$options = [
+    'smtp_options' => [
+        'username' => 'me@gmail.com',
+        'password' => 'pa$$work',
+    ]
+];
+
+$mailer = new GoogleMailer($options);
+echo $mailer->sendMail('me@gmail.com', 'dummy@example.com', 'Hello Fork!', 'Cheers!')."\n";

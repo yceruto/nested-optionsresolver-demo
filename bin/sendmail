@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+use App\Mailer\SendmailMailer;
+
+set_time_limit(0);
+
+require __DIR__.'/../vendor/autoload.php';
+
+$options = [
+    // Uncomment these options to change the command to invoke
+    //'sendmail_options' => [
+    //    'command' => '/usr/lib/sendmail -oi -t',
+    //]
+];
+
+$mailer = new SendmailMailer($options);
+echo $mailer->sendMail('me@example.com', 'dummy@example.com', 'Hello Fork!', 'Cheers!')."\n";
